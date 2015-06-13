@@ -44,6 +44,10 @@
     return [[self alloc] initAlertWithTitle:title message:message];
 }
 
++ (CustomAlertView *)promptAlertWithTitle:(NSString *)title {
+    return [[self alloc] initPromptAlert:title];
+}
+
 #pragma mark - init methods
 - (id)initAlertWithTitle:(NSString *)title message:(NSString *)message {
     if ([self init]) {
@@ -93,6 +97,43 @@
             
             height += size.height + kAlertViewBorder;
         }
+    }
+    return self;
+}
+
+- (id)initPromptAlert:(NSString *)title {
+    if ([self init]) {
+        height = kAlertViewBorder;
+        
+        CGSize size = [title sizeWithFont:kAlertViewTitleFont
+                        constrainedToSize:CGSizeMake(kAlertViewWidth-kAlertViewBorder*2, 1000)
+                            lineBreakMode:NSLineBreakByWordWrapping];
+        
+        UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kAlertViewBorder, height, kAlertViewWidth-kAlertViewBorder*2, size.height)];
+        labelView.font = kAlertViewTitleFont;
+        labelView.numberOfLines = 0;
+        labelView.lineBreakMode = NSLineBreakByWordWrapping;
+        labelView.textColor = kAlertViewTitleTextColor;
+        labelView.backgroundColor = [UIColor clearColor];
+        labelView.textAlignment = kTextAlignmentCenter;
+        labelView.text = title;
+        [_view addSubview:labelView];
+        
+        height += size.height + kAlertViewBorder;
+        
+        UITextField *textFiled = [[UITextField alloc] initWithFrame:CGRectMake(kAlertViewBorder, height, kAlertViewWidth-2*kAlertViewBorder, kAlertViewTextFieldHeight)];
+        textFiled.backgroundColor = [UIColor clearColor];
+        textFiled.layer.cornerRadius = 3;
+        textFiled.layer.borderWidth = .5;
+        textFiled.layer.borderColor = [kAlertViewOtherTextColor CGColor];
+        textFiled.layer.masksToBounds = YES;
+        textFiled.font = kAlertViewTitleFont;
+        textFiled.delegate = self;
+        textFiled.textAlignment = kTextAlignmentCenter;
+        textFiled.placeholder = @"点击输入";
+        [_view addSubview:textFiled];
+        
+        height += kAlertViewTextFieldHeight + kAlertViewBorder;
     }
     return self;
 }

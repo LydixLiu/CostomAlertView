@@ -7,6 +7,7 @@
 //
 
 #import "CustomAlertBackGround.h"
+#import "ColorHelper.h"
 
 @implementation CustomAlertBackGround
 
@@ -25,6 +26,7 @@ static CustomAlertBackGround *alertBg = nil;
         self.windowLevel = UIWindowLevelAlert;
         self.hidden = YES;
         self.userInteractionEnabled = YES;
+        self.backgroundColor = [ColorHelper colorWithARGBString:@"#000000" alpha:.5];
     }
     return self;
 }
@@ -97,8 +99,7 @@ static CustomAlertBackGround *alertBg = nil;
     }
 }
 
-- (void)reduceAlphaIfEmpty
-{
+- (void)reduceAlphaIfEmpty {
     if (self.subviews.count == 0)
     {
         [UIView animateWithDuration:.1 animations:^{
@@ -110,7 +111,7 @@ static CustomAlertBackGround *alertBg = nil;
     }
 }
 
-- (void)cleanSelf{
+- (void)cleanSelf {
     if (mArrWaiting) {
         [mArrWaiting removeAllObjects];
         mArrWaiting = nil;

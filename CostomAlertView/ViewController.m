@@ -39,9 +39,9 @@
 }
 
 - (void)showAlert {
-    CustomAlertView *alert = [CustomAlertView alertWithTitle:[NSString stringWithFormat:@"直接弹出的弹出框"] message:nil];
+    CustomAlertView *alert = [CustomAlertView promptAlertWithTitle:@"请输入值"];
     [alert addButtonWithTitle:@"确定" block:^(NSMutableDictionary *dataDic) {
-        CustomAlertView *alertInner = [CustomAlertView alertWithTitle:[NSString stringWithFormat:@"你点击了第%d个按钮",[[dataDic valueForKey:@"clickedButtonIndex"] intValue]+1] message:nil];
+        CustomAlertView *alertInner = [CustomAlertView alertWithTitle:[NSString stringWithFormat:@"输入值:%@",[dataDic valueForKey:@"input"]] message:nil];
         [alertInner addButtonWithTitle:@"确定" block:^(NSMutableDictionary *dataDic) {
             
         }];

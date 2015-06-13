@@ -14,6 +14,7 @@
 #define kAlertViewBorder        25
 #define kAlertViewWidth         (320-2*kAlertViewBorder)
 #define kAlertViewBackgroundCapHeight   100
+#define kAlertViewTextFieldHeight   29
 
 #define kAlertViewBgImgFrame    CGRectMake(0, 0, 270, 100)
 #define kAlertButtonHeight      40

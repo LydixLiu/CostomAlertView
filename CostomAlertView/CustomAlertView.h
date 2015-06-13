@@ -32,6 +32,8 @@ typedef void (^Block) (NSMutableDictionary *dataDic);
 
 + (CustomAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message;
 
++ (CustomAlertView *)promptAlertWithTitle:(NSString *)title;
+
 /**
  *  添加按钮
  */
