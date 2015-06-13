@@ -14,6 +14,9 @@
 		717D84CE1B2BCA58001674DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717D84CD1B2BCA58001674DA /* Images.xcassets */; };
 		717D84D11B2BCA58001674DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 717D84CF1B2BCA58001674DA /* LaunchScreen.xib */; };
 		717D84DD1B2BCA58001674DA /* CostomAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84DC1B2BCA58001674DA /* CostomAlertViewTests.m */; };
+		717D84EA1B2BCC25001674DA /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84E91B2BCC25001674DA /* ColorHelper.m */; };
+		717D84EE1B2BD323001674DA /* CustomAlertBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */; };
+		717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84F01B2BD5AD001674DA /* CustomAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,13 @@
 		717D84D61B2BCA58001674DA /* CostomAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CostomAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		717D84DB1B2BCA58001674DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		717D84DC1B2BCA58001674DA /* CostomAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomAlertViewTests.m; sourceTree = "<group>"; };
+		717D84E81B2BCC25001674DA /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
+		717D84E91B2BCC25001674DA /* ColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
+		717D84EC1B2BD323001674DA /* CustomAlertBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertBackGround.h; sourceTree = "<group>"; };
+		717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertBackGround.m; sourceTree = "<group>"; };
+		717D84EF1B2BD5AD001674DA /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
+		717D84F01B2BD5AD001674DA /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
+		717D84F21B2BFBF4001674DA /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 		717D84BF1B2BCA58001674DA /* CostomAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				717D84E61B2BCAC0001674DA /* AlertView */,
 				717D84C41B2BCA58001674DA /* AppDelegate.h */,
 				717D84C51B2BCA58001674DA /* AppDelegate.m */,
 				717D84C71B2BCA58001674DA /* ViewController.h */,
@@ -98,6 +109,7 @@
 			children = (
 				717D84C11B2BCA58001674DA /* Info.plist */,
 				717D84C21B2BCA58001674DA /* main.m */,
+				717D84F21B2BFBF4001674DA /* Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +129,19 @@
 				717D84DB1B2BCA58001674DA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		717D84E61B2BCAC0001674DA /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				717D84E81B2BCC25001674DA /* ColorHelper.h */,
+				717D84E91B2BCC25001674DA /* ColorHelper.m */,
+				717D84EC1B2BD323001674DA /* CustomAlertBackGround.h */,
+				717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */,
+				717D84EF1B2BD5AD001674DA /* CustomAlertView.h */,
+				717D84F01B2BD5AD001674DA /* CustomAlertView.m */,
+			);
+			name = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +244,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */,
 				717D84C91B2BCA58001674DA /* ViewController.m in Sources */,
 				717D84C61B2BCA58001674DA /* AppDelegate.m in Sources */,
+				717D84EE1B2BD323001674DA /* CustomAlertBackGround.m in Sources */,
 				717D84C31B2BCA58001674DA /* main.m in Sources */,
+				717D84EA1B2BCC25001674DA /* ColorHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
