@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CustomAlertView.h"
+#import "CustomActionSheet.h"
 #import "ColorHelper.h"
 #import "Header.h"
 
@@ -41,12 +42,14 @@
 - (void)showAlert {
     CustomAlertView *alert = [CustomAlertView promptAlertWithTitle:@"请输入值"];
     [alert addButtonWithTitle:@"确定" block:^(NSMutableDictionary *dataDic) {
-        CustomAlertView *alertInner = [CustomAlertView alertWithTitle:[NSString stringWithFormat:@"输入值:%@",[dataDic valueForKey:@"input"]] message:nil];
-        [alertInner addButtonWithTitle:@"确定" block:^(NSMutableDictionary *dataDic) {
+        CustomActionSheet *actionSheet = [CustomActionSheet actionSheetWithTitle:[dataDic valueForKey:@"input"] message:nil];
+        [actionSheet addButtonWithTitle:@"确定" block:^(NSMutableDictionary *dataDic) {
             
         }];
-        [alertInner addButtonWithTitle:@"取消" block:nil];
-        [alertInner show];
+        [actionSheet setCancelButtonWithTitle:@"取消" block:^(NSMutableDictionary *dataDic) {
+            
+        }];
+        [actionSheet show];
     }];
     [alert addButtonWithTitle:@"取消" block:nil];
     [alert show];

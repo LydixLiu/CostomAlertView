@@ -212,7 +212,7 @@
     tap1.delegate = self;
     [_view addGestureRecognizer:tap1];
     
-    [[CustomAlertBackGround shareInstance] showAlertView:self];
+    [[CustomAlertBackGround shareInstance] show:self];
 }
 
 #pragma mark - 手势处理
@@ -220,7 +220,7 @@
     [self hideKeyBoard];
     
     if (self.tapToDismiss) {//点击消失
-        [[CustomAlertBackGround shareInstance] dismissAlertView:self];
+        [[CustomAlertBackGround shareInstance] dismiss:self];
     }
 }
 
@@ -319,7 +319,7 @@
             ((Block)block)(mDic);
         }
     }
-    [[CustomAlertBackGround shareInstance] dismissAlertView:self];
+    [[CustomAlertBackGround shareInstance] dismiss:self];
 }
 
 #pragma mark - 为alert添加按钮

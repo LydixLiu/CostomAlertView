@@ -17,6 +17,8 @@
 		717D84EA1B2BCC25001674DA /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84E91B2BCC25001674DA /* ColorHelper.m */; };
 		717D84EE1B2BD323001674DA /* CustomAlertBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */; };
 		717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84F01B2BD5AD001674DA /* CustomAlertView.m */; };
+		71D69B461B313E98005A5C4B /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D69B451B313E98005A5C4B /* CustomActionSheet.m */; };
+		71D69B491B314251005A5C4B /* CustomActionSheetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D69B481B314251005A5C4B /* CustomActionSheetButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		717D84EF1B2BD5AD001674DA /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		717D84F01B2BD5AD001674DA /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		717D84F21B2BFBF4001674DA /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		71D69B441B313E98005A5C4B /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
+		71D69B451B313E98005A5C4B /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
+		71D69B471B314251005A5C4B /* CustomActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheetButton.h; sourceTree = "<group>"; };
+		71D69B481B314251005A5C4B /* CustomActionSheetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheetButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,8 @@
 		717D84BF1B2BCA58001674DA /* CostomAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				71D69B421B313E3D005A5C4B /* shared */,
+				71D69B411B313E03005A5C4B /* ActionSheet */,
 				717D84E61B2BCAC0001674DA /* AlertView */,
 				717D84C41B2BCA58001674DA /* AppDelegate.h */,
 				717D84C51B2BCA58001674DA /* AppDelegate.m */,
@@ -134,14 +142,32 @@
 		717D84E61B2BCAC0001674DA /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
-				717D84E81B2BCC25001674DA /* ColorHelper.h */,
-				717D84E91B2BCC25001674DA /* ColorHelper.m */,
-				717D84EC1B2BD323001674DA /* CustomAlertBackGround.h */,
-				717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */,
 				717D84EF1B2BD5AD001674DA /* CustomAlertView.h */,
 				717D84F01B2BD5AD001674DA /* CustomAlertView.m */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		71D69B411B313E03005A5C4B /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				71D69B471B314251005A5C4B /* CustomActionSheetButton.h */,
+				71D69B481B314251005A5C4B /* CustomActionSheetButton.m */,
+				71D69B441B313E98005A5C4B /* CustomActionSheet.h */,
+				71D69B451B313E98005A5C4B /* CustomActionSheet.m */,
+			);
+			name = ActionSheet;
+			sourceTree = "<group>";
+		};
+		71D69B421B313E3D005A5C4B /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				717D84E81B2BCC25001674DA /* ColorHelper.h */,
+				717D84E91B2BCC25001674DA /* ColorHelper.m */,
+				717D84EC1B2BD323001674DA /* CustomAlertBackGround.h */,
+				717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */,
+			);
+			name = shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,9 +271,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */,
+				71D69B461B313E98005A5C4B /* CustomActionSheet.m in Sources */,
 				717D84C91B2BCA58001674DA /* ViewController.m in Sources */,
 				717D84C61B2BCA58001674DA /* AppDelegate.m in Sources */,
 				717D84EE1B2BD323001674DA /* CustomAlertBackGround.m in Sources */,
+				71D69B491B314251005A5C4B /* CustomActionSheetButton.m in Sources */,
 				717D84C31B2BCA58001674DA /* main.m in Sources */,
 				717D84EA1B2BCC25001674DA /* ColorHelper.m in Sources */,
 			);
@@ -446,6 +474,7 @@
 				717D84E21B2BCA58001674DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		717D84E31B2BCA58001674DA /* Build configuration list for PBXNativeTarget "CostomAlertViewTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +483,7 @@
 				717D84E51B2BCA58001674DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

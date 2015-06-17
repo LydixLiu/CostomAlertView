@@ -9,8 +9,13 @@
 #ifndef CostomAlertView_Header_h
 #define CostomAlertView_Header_h
 
+typedef void (^Block) (NSMutableDictionary *dataDic);
+
+#define kButtonCornerRadius                 5.0f
+
 //弹出框size相关
 #define SCREEN_WIDTH            ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT           ([UIScreen mainScreen].bounds.size.height)
 #define kAlertViewBorder        25
 #define kAlertViewWidth         (320-2*kAlertViewBorder)
 #define kAlertViewBackgroundCapHeight   100
@@ -35,6 +40,16 @@
 #define kAlertViewButtonColorBlue       [ColorHelper colorWithARGBString:@"#1c93e5"]
 #define kAlertViewButtonColorGray       [ColorHelper colorWithARGBString:@"#94979a"]
 #define kAlertViewButtonColorRed        [ColorHelper colorWithARGBString:@"#ff0028"]
+
+
+//actionsheet
+#define kActionSheetBounce         10
+#define kActionSheetBorder         0.5
+#define kActionSheetButtonHeight   35
+#define kActionSheetTopMargin      15
+
+#define kActionSheetBtnTitleColorNormal @"#007aff"
+#define kActionSheetBtnTitleColorDestiv @"#ff0028"
 
 #if __IPHONE_6_0 // iOS6 and later
 

@@ -31,56 +31,89 @@ static CustomAlertBackGround *alertBg = nil;
     return self;
 }
 
-- (void)showAlertView:(CustomAlertView *)alert {
-    if (showingAlertView) {//判断当前是否正在显示
+#pragma mark - 显示
+- (void)show:(id)obj {
+    
+    if (showingView) {
         if (!mArrWaiting) {
             mArrWaiting = [NSMutableArray array];
         }
-        [mArrWaiting addObject:alert];
+        [mArrWaiting addObject:obj];
     } else {
-        for (UIView *view in self.subviews) {//清空之前残留view
+        //首先判断类型
+        if ([obj isKindOfClass:[CustomActionSheet class]]) {
+            showingAction = obj;
+            showingView = showingAction.view;
+        } else if ([obj isKindOfClass:[CustomAlertView class]]) {
+            showingAlertView = obj;
+            showingView = showingAlertView.view;
+        }
+        
+        for (UIView *view in self.subviews) {//清空subviews
             [view removeFromSuperview];
         }
-        showingView = alert.view;
         
-        showingAlertView = alert;
-        showingView.alpha = 0;
-        self.alpha = currentAlpha;
-        self.userInteractionEnabled = YES;
+        //添加view
         [self addSubview:showingView];
-        showingView.userInteractionEnabled = YES;
+        self.userInteractionEnabled = YES;
         
+        //window操作
         if (!previousKeyWindow) {
             previousKeyWindow = [UIApplication sharedApplication].keyWindow;
         }
         previousKeyWindow.userInteractionEnabled = NO;
+        
+        //添加手势
         tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureEvent:)];
         tapGesture.delegate = self;
         [self addGestureRecognizer:tapGesture];
-        showingView.center = self.center;
-        [UIView animateWithDuration:.2 animations:^{
+        
+        //显示动画
+        self.alpha = currentAlpha;
+        if (showingAlertView) {
+            showingView.alpha = 0;
+            showingView.center = self.center;
+            [UIView animateWithDuration:.2 animations:^{
+                showingView.alpha = 1.f;
+                self.alpha = 1.f;
+            }];
+        } else if (showingAction) {
+            CGRect frame = showingView.frame;
+            frame.origin.y = SCREEN_HEIGHT - frame.size.height - 5;
             showingView.alpha = 1.f;
             self.alpha = 1.f;
-        }];
+            
+            [UIView animateWithDuration:.2 animations:^{
+                showingView.frame = frame;
+            }];
+        }
+        
     }
     [self makeKeyAndVisible];
-    self.userInteractionEnabled = YES;
 }
 
-- (void)dismissAlertView:(CustomAlertView *)alert {
+#pragma mark - 移除
+- (void)dismiss:(id)obj {
     
     [UIView animateWithDuration:.2
                      animations:^{
-                         showingView.alpha = 0;
+                         if ([obj isKindOfClass:[CustomAlertView class]]) {
+                             showingView.alpha = 0;
+                         } else if ([obj isKindOfClass:[CustomActionSheet class]]) {
+                             CGRect frame = showingView.frame;
+                             frame.origin.y = SCREEN_HEIGHT;
+                             showingView.frame = frame;
+                         }
                          self.alpha = mArrWaiting.count;
                      }
                      completion:^(BOOL finished) {
                          [showingView removeFromSuperview];
                          showingAlertView = nil;
+                         showingAction = nil;
                          showingView = nil;
                          if (mArrWaiting.count > 0) {
                              currentAlpha = 1;
-                             [self showAlertView:mArrWaiting.lastObject];
+                             [self show:mArrWaiting.lastObject];
                              [mArrWaiting removeLastObject];
                          } else {
                              [self reduceAlphaIfEmpty];
@@ -90,15 +123,19 @@ static CustomAlertBackGround *alertBg = nil;
                      }];
 }
 
+#pragma mark - 手势
 - (void)handleGestureEvent:(UITapGestureRecognizer *)gesture {
     if (showingAlertView) {
         if (showingAlertView.tapToDismiss)
-            [self dismissAlertView:showingAlertView];
+            [self dismiss:showingAlertView];
             else
             [showingAlertView hideKeyBoard];
+    } else if (showingAction) {
+        [self dismiss:showingAction];
     }
 }
 
+#pragma mark - 清理
 - (void)reduceAlphaIfEmpty {
     if (self.subviews.count == 0)
     {

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomAlertView.h"
+#import "CustomActionSheet.h"
 
 @interface CustomAlertBackGround : UIWindow <UIGestureRecognizerDelegate>
 {
@@ -16,6 +17,7 @@
     
     //ARC模式下防止对象释放使用
     CustomAlertView *showingAlertView;//当前显示的弹出框对象
+    CustomActionSheet *showingAction;//当前显示的actionsheet
     
     UIView *showingView;//当前显示弹出框的view
     
@@ -34,11 +36,11 @@
 /**
  *  显示弹出框到window,若当前已有弹出框显示,将进入等待
  */
-- (void)showAlertView:(CustomAlertView *)alert;
+- (void)show:(id)obj;
 
 /**
  *  移除显示弹出框
  */
-- (void)dismissAlertView:(CustomAlertView *)alert;
+- (void)dismiss:(id)obj;
 
 @end

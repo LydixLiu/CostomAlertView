@@ -9,8 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-typedef void (^Block) (NSMutableDictionary *dataDic);
+#import "Header.h"
 
 @interface CustomAlertView : NSObject <UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 {
