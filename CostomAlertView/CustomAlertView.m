@@ -50,7 +50,8 @@
 
 #pragma mark - init methods
 - (id)initAlertWithTitle:(NSString *)title message:(NSString *)message {
-    if ([self init]) {
+    if (self = [super init]) {
+        [self setup];
         height = kAlertViewBorder;
         if (![ColorHelper isNilOrEmpty:title])
         {
@@ -102,7 +103,8 @@
 }
 
 - (id)initPromptAlert:(NSString *)title {
-    if ([self init]) {
+    if (self = [super init]) {
+        [self setup];
         height = kAlertViewBorder;
         
         CGSize size = [title sizeWithFont:kAlertViewTitleFont
