@@ -10,6 +10,7 @@
 #import "ColorHelper.h"
 #import "Header.h"
 #import "CustomAlertBackGround.h"
+#import "CostomAlertView-Swift.h"
 
 @implementation CustomAlertView
 
@@ -215,6 +216,7 @@
     [_view addGestureRecognizer:tap1];
     
     [[CustomAlertBackGround shareInstance] show:self];
+//    [[CustomAlertBG shareInstance] show:self];
 }
 
 #pragma mark - 手势处理
@@ -322,6 +324,7 @@
         }
     }
     [[CustomAlertBackGround shareInstance] dismiss:self];
+//    [[CustomAlertBG shareInstance] dismiss:self];
 }
 
 #pragma mark - 为alert添加按钮

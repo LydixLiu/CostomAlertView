@@ -9,6 +9,7 @@
 #import "CustomActionSheet.h"
 #import "CustomActionSheetButton.h"
 #import "CustomAlertBackGround.h"
+#import "costomAlertView-Swift.h"
 
 @implementation CustomActionSheet
 
@@ -154,6 +155,7 @@
     frame.size.height = height;
     _view.frame = frame;
     [[CustomAlertBackGround shareInstance] show:self];
+//    [[CustomAlertBG shareInstance] show:self];
 }
 
 - (UIImage *)imageWithColor:(NSString *)colorString frame:(CGRect)frame {
@@ -179,6 +181,7 @@
         ((Block)block)([NSMutableDictionary dictionary]);
     }
     [[CustomAlertBackGround shareInstance] dismiss:self];
+//    [[CustomAlertBG shareInstance] dismiss:self];
 }
 
 @end

@@ -17,6 +17,7 @@
 		717D84EA1B2BCC25001674DA /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84E91B2BCC25001674DA /* ColorHelper.m */; };
 		717D84EE1B2BD323001674DA /* CustomAlertBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */; };
 		717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D84F01B2BD5AD001674DA /* CustomAlertView.m */; };
+		71A0585F1B5F8A3E00F06644 /* CustomAlertBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0585E1B5F8A3E00F06644 /* CustomAlertBG.swift */; };
 		71D69B461B313E98005A5C4B /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D69B451B313E98005A5C4B /* CustomActionSheet.m */; };
 		71D69B491B314251005A5C4B /* CustomActionSheetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D69B481B314251005A5C4B /* CustomActionSheetButton.m */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,8 @@
 		717D84EF1B2BD5AD001674DA /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		717D84F01B2BD5AD001674DA /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		717D84F21B2BFBF4001674DA /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		71A0585D1B5F8A3D00F06644 /* CostomAlertView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CostomAlertView-Bridging-Header.h"; sourceTree = "<group>"; };
+		71A0585E1B5F8A3E00F06644 /* CustomAlertBG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertBG.swift; sourceTree = "<group>"; };
 		71D69B441B313E98005A5C4B /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
 		71D69B451B313E98005A5C4B /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
 		71D69B471B314251005A5C4B /* CustomActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheetButton.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				717D84E91B2BCC25001674DA /* ColorHelper.m */,
 				717D84EC1B2BD323001674DA /* CustomAlertBackGround.h */,
 				717D84ED1B2BD323001674DA /* CustomAlertBackGround.m */,
+				71A0585E1B5F8A3E00F06644 /* CustomAlertBG.swift */,
+				71A0585D1B5F8A3D00F06644 /* CostomAlertView-Bridging-Header.h */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				717D84F11B2BD5AD001674DA /* CustomAlertView.m in Sources */,
+				71A0585F1B5F8A3E00F06644 /* CustomAlertBG.swift in Sources */,
 				71D69B461B313E98005A5C4B /* CustomActionSheet.m in Sources */,
 				717D84C91B2BCA58001674DA /* ViewController.m in Sources */,
 				717D84C61B2BCA58001674DA /* AppDelegate.m in Sources */,
@@ -405,9 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CostomAlertView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CostomAlertView/CostomAlertView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -415,9 +425,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CostomAlertView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CostomAlertView/CostomAlertView-Bridging-Header.h";
 			};
 			name = Release;
 		};
